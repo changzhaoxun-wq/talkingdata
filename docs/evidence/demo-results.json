@@ -1,0 +1,77 @@
+{
+  "real_agent": true,
+  "cli": "OpenCode 1.2.27",
+  "model": "linext-5.3-luna",
+  "sessions": {
+    "code": "89088690d7344f40a5b6640a02c57c63",
+    "work": "4b9173d572e74a3b80ce31e4658c7071"
+  },
+  "continuation_preserved_cli_session": true,
+  "close_and_reopen": true,
+  "mobile_no_horizontal_overflow": true,
+  "browser_errors": [],
+  "runs": [
+    {
+      "id": "7611b94b3f7a4d59a032188f0c60470d",
+      "session_id": "89088690d7344f40a5b6640a02c57c63",
+      "status": "completed",
+      "created_at": 1795251449.092772,
+      "started_at": 1795251449.169451,
+      "finished_at": 1795251474.386397,
+      "error": null,
+      "model": "linext-5.3-luna"
+    },
+    {
+      "id": "def30a1129814a72a4f063534e950beb",
+      "session_id": "89088690d7344f40a5b6640a02c57c63",
+      "status": "completed",
+      "created_at": 1795251543.8232589,
+      "started_at": 1795251543.8956685,
+      "finished_at": 1795251595.1217623,
+      "error": null,
+      "model": "linext-5.3-luna"
+    },
+    {
+      "id": "76be0541298445e3962400eaa2672eaa",
+      "session_id": "89088690d7344f40a5b6640a02c57c63",
+      "status": "completed",
+      "created_at": 1795252673.1194632,
+      "started_at": 1795252673.1972373,
+      "finished_at": 1795252717.654013,
+      "error": null,
+      "model": "linext-5.3-luna"
+    },
+    {
+      "id": "9f0e1d1b56234b07aa66ef2b065353ab",
+      "session_id": "4b9173d572e74a3b80ce31e4658c7071",
+      "status": "completed",
+      "created_at": 1795251449.4424255,
+      "started_at": 1795251449.5103412,
+      "finished_at": 1795251542.0523798,
+      "error": null,
+      "model": "linext-5.3-luna"
+    },
+    {
+      "id": "88344632364047ff883e263493cbd764",
+      "session_id": "4b9173d572e74a3b80ce31e4658c7071",
+      "status": "completed",
+      "created_at": 1795251544.439723,
+      "started_at": 1795251544.508314,
+      "finished_at": 1795251666.20326,
+      "error": null,
+      "model": "linext-5.3-luna"
+    },
+    {
+      "id": "e8f240a335224229a26e23bcddb76d56",
+      "session_id": "4b9173d572e74a3b80ce31e4658c7071",
+      "status": "completed",
+      "created_at": 1795252141.5088143,
+      "started_at": 1795252141.5760245,
+      "finished_at": 1795252238.8159764,
+      "error": null,
+      "model": "linext-5.3-luna"
+    }
+  ],
+  "tool_calls": 71,
+  "fact_check_followup": true
+}

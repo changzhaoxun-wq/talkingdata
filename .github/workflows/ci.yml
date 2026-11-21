@@ -1,0 +1,31 @@
+name: Docker build and tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Build runtime and check browser JavaScript
+        run: |
+          docker build --target runtime -t orbit:ci .
+          docker run --rm --network none --entrypoint node orbit:ci --check /app/web/app.js
+      - name: Test lifecycle without model access
+        run: |
+          docker build --target test -t orbit:test .
+          docker run --rm --network none orbit:test
+      - name: Start real application without credentials
+        run: |
+          docker run -d --name orbit-smoke -p 127.0.0.1:18080:8080 orbit:ci
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:18080/api/health; then exit 0; fi
+            sleep 1
+          done
+          docker logs orbit-smoke
+          exit 1

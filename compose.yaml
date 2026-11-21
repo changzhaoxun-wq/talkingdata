@@ -1,0 +1,21 @@
+services:
+  workbench:
+    build:
+      context: .
+      target: runtime
+    init: true
+    ports:
+      - "127.0.0.1:${PORT:-8080}:8080"
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    volumes:
+      - workbench-data:/data
+    restart: unless-stopped
+    mem_limit: 2g
+    cpus: 2
+    pids_limit: 256
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  workbench-data:

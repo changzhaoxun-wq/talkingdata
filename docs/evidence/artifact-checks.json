@@ -1,0 +1,21 @@
+{
+  "independent_csv_check": {
+    "rows_checked": 12,
+    "revenue": 239000,
+    "cost": 152500,
+    "gross_profit": 86500,
+    "gross_margin_pct": 36.19
+  },
+  "desktop_file_panel_toggle": true,
+  "html_tool": {
+    "8_hours_2_overtime_100_rate_1_5_multiplier": 1100,
+    "negative_input_rejected": true,
+    "reset_value": 550,
+    "csv_download_has_utf8_bom": true
+  },
+  "report_and_csv_preview": true,
+  "markdown_xss_sanitized": true,
+  "html_cannot_access_parent": true,
+  "new_session_keyboard_shortcut": true,
+  "browser_page_errors": []
+}

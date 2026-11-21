@@ -42,3 +42,9 @@ htmlcov/
 .cache/
 tmp/
 temp/
+
+# Local service state and private backups
+data/
+backups/
+artifacts/
+!docs/evidence/*.log

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#151a2d">
+  <meta name="description" content="Orbit 云端 Agent 助手工作台：开发代码、分析材料，将工作持续推进。">
+  <title>Orbit · 云端 Agent 工作台</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/vendor/marked.js" defer></script>
+  <script src="/vendor/purify.js" defer></script>
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="/" aria-label="Orbit 首页"><span class="brand-mark">o<span></span></span><span>Orbit<small>云端 Agent 工作台</small></span></a>
+    <button class="new-session" id="new-session"><span data-icon="plus"></span>新建会话<kbd>N</kbd></button>
+    <label class="search-box"><span data-icon="search"></span><input id="search" type="search" placeholder="搜索会话" aria-label="搜索会话"></label>
+    <div class="sidebar-label">工作记录 <span id="session-count">0</span></div>
+    <nav class="session-list" id="session-list" aria-label="会话列表"></nav>
+    <div class="sidebar-bottom">
+      <div class="persist-note"><span data-icon="shield"></span><span>工作会被妥善保留<small>关闭页面，稍后继续</small></span></div>
+      <button id="open-settings" class="settings-button"><span class="avatar">我</span><span>个人工作空间<small id="connection-label">正在检查连接</small></span><span data-icon="settings"></span></button>
+    </div>
+  </aside>
+  <main class="main-area">
+    <header class="topbar">
+      <button id="mobile-menu" class="icon-button mobile-only" aria-label="打开会话列表"><span data-icon="menu"></span></button>
+      <div class="breadcrumb">工作空间<span>/</span><button id="session-title" title="点击重命名会话">新的开始</button></div>
+      <div class="top-actions"><span class="local-badge"><i></i>持久工作空间</span><button id="delete-session" class="icon-button" title="删除当前会话" aria-label="删除当前会话" hidden><span data-icon="trash"></span></button><button id="toggle-files" class="icon-button" title="显示文件与进展" aria-label="显示文件与进展"><span data-icon="panel"></span></button></div>
+    </header>
+    <div class="workspace-grid">
+      <section class="conversation" aria-label="对话工作区">
+        <div class="setup-banner" id="setup-banner" hidden><span data-icon="plug"></span><span>连接一个模型，开始你的第一项工作。</span><button id="setup-button">配置连接</button></div>
+        <div class="messages-scroll" id="messages-scroll">
+          <div class="welcome" id="welcome">
+            <div class="welcome-symbol"><span data-icon="sparkles"></span><span class="orbit-dot"></span></div>
+            <div class="eyebrow">YOUR SPACE TO MAKE THINGS HAPPEN</div>
+            <h1>想把哪件事<br>交给助手？</h1>
+            <p>从一个想法、一份材料开始。<br>让助手动手完成，你随时接着往前推进。</p>
+            <div class="starter-grid">
+              <button class="starter-card" data-starter="code"><span class="starter-icon purple" data-icon="code"></span><strong>把想法变成工具</strong><span>开发网页、编写脚本、修复代码</span><small>例如：做一个番茄钟小工具</small></button>
+              <button class="starter-card" data-starter="work"><span class="starter-icon teal" data-icon="document"></span><strong>让材料变得清晰</strong><span>分析数据、提炼要点、整理报告</span><small>上传文件，交给助手分析</small></button>
+            </div>
+            <div class="welcome-foot"><span data-icon="layers"></span>一个会话，一件工作。进展与成果都在这里。</div>
+          </div>
+          <div class="message-list" id="message-list"></div>
+        </div>
+        <div class="composer-wrap">
+          <div id="run-state" class="run-state" hidden></div>
+          <div class="composer" id="composer">
+            <div id="attachments" class="attachments"></div>
+            <label class="sr-only" for="prompt">发送给助手的任务</label>
+            <textarea id="prompt" placeholder="描述任务，或上传材料开始…" rows="2" maxlength="40000"></textarea>
+            <div class="composer-bottom"><div class="composer-tools"><button id="attach-button" class="icon-button" aria-label="上传材料" title="上传材料，单个最大 25 MB"><span data-icon="paperclip"></span></button><span id="model-label" class="model-label">OpenCode Agent</span></div><div class="send-tools"><span class="keyboard-hint">Enter 发送 · Shift + Enter 换行</span><button id="stop-button" class="stop-button" hidden><span data-icon="stop"></span>停止</button><button id="send-button" class="send-button" aria-label="发送任务" title="发送任务"><span data-icon="send"></span></button></div></div>
+          </div>
+          <input id="file-input" type="file" multiple hidden>
+          <div class="composer-foot"><span><span class="tiny-dot"></span>任务在服务端持续执行</span><span>重要结果请核对后使用</span></div>
+        </div>
+      </section>
+      <aside class="inspector" id="inspector" aria-label="文件与执行进展">
+        <div class="inspector-tabs" role="tablist"><button id="files-tab" class="active" role="tab" aria-selected="true">工作文件 <span id="file-count">0</span></button><button id="activity-tab" role="tab" aria-selected="false">执行记录 <span id="activity-count">0</span></button></div>
+        <div id="files-panel" class="inspector-panel"><div class="file-toolbar"><span>成果与材料</span><button id="download-all" class="text-button" disabled><span data-icon="download"></span>打包下载</button></div><div id="file-list"></div><div class="file-empty" id="file-empty"><div class="empty-folder"><span data-icon="folder"></span><span class="folder-spark">✦</span></div><h3>成果会出现在这里</h3><p>上传的材料和助手创建的文件，<br>都保存在当前会话中。</p><button id="empty-upload" class="outline-button"><span data-icon="upload"></span>上传工作材料</button></div></div>
+        <div id="activity-panel" class="inspector-panel" hidden><div class="activity-caption">查看助手做了什么，检查每一步结果。</div><div id="activity-list"></div></div>
+        <div class="inspector-footer"><span data-icon="info"></span>不同会话分别保留对话与文件</div>
+      </aside>
+    </div>
+  </main>
+</div>
+<dialog id="settings-dialog" class="settings-dialog"><form id="settings-form"><div class="dialog-heading"><div><div class="eyebrow">MODEL CONNECTION</div><h2>连接你的 Agent</h2></div><button type="button" class="icon-button close-dialog" aria-label="关闭"><span data-icon="close"></span></button></div><p class="dialog-description">OpenCode 使用此连接执行工作。凭据保存在服务端，设置界面不会回显。</p><label>API 地址<input id="setting-base" type="url" required placeholder="https://…/v1"></label><label>API Key<input id="setting-key" type="password" autocomplete="off" placeholder="输入临时凭据"></label><label>模型<input id="setting-model" list="model-options" placeholder="可留空，检测后自动选择"><datalist id="model-options"></datalist></label><div id="settings-result" class="settings-result" role="status"></div><div class="dialog-footer"><span>单用户 · 本机访问</span><button id="save-settings" type="submit" class="primary-button">保存并检测连接</button></div></form></dialog>
+<dialog id="file-dialog" class="file-dialog"><div class="dialog-heading"><div class="file-dialog-title"><span id="preview-file-icon"></span><div><h2 id="preview-title"></h2><span id="preview-meta"></span></div></div><div class="preview-actions"><button id="preview-toggle" class="outline-button" hidden>运行预览</button><a id="preview-download" class="outline-button" download><span data-icon="download"></span>下载</a><button class="icon-button close-dialog" aria-label="关闭"><span data-icon="close"></span></button></div></div><div id="preview-content" class="preview-content"></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "verified_at": "2026-11-21T17:35:01.750515+08:00",
+  "sse_query_cursor_replay": true,
+  "sse_last_event_id_replay": true,
+  "docker_restart_preserves_sessions_messages_and_file_hashes": true,
+  "sessions": {
+    "89088690d7344f40a5b6640a02c57c63": {
+      "cli_session_id": "ses_e02accd14ffek2CUIqq5pFLau1",
+      "messages": [
+        "ad02a3c3a00844128c6928a4e44f6b47",
+        "a45a6299cf784bebb59aae6c1ccb88bd",
+        "7cfcd134a3c746e580b6b4817f137156",
+        "48af5c858f20424a976fcd7e2f512ccc",
+        "ecab8d64fbf843c3899239cf4fa61827",
+        "382f330cdd6a4ab49a54aa834e4f0b56"
+      ],
+      "runs": [
+        "7611b94b3f7a4d59a032188f0c60470d",
+        "def30a1129814a72a4f063534e950beb",
+        "76be0541298445e3962400eaa2672eaa"
+      ],
+      "sha256": {
+        "README.md": "f6d03c5056b6d320be1967a047ddb9754f791279556e97b6af996a43226146b8",
+        "index.html": "ee42744cee3e2d13cf061e018ded24ae794e575d0ade6f782409b3c9994bf375"
+      }
+    },
+    "4b9173d572e74a3b80ce31e4658c7071": {
+      "cli_session_id": "ses_e02accb65ffeuNlYviWytwI7m3",
+      "messages": [
+        "e6903b6482914aaebad021eeb6b99b3b",
+        "dbacc1359a7d41be84571894628b9e1b",
+        "b076b5e934094d9d968bdb137a3e03eb",
+        "c780a492e3c54b72b12f4173775e0c5b",
+        "3f6a6cb077ef4ad3b209449ebf89f0cd",
+        "6ed73b27308a4de0b5c453c44e560987"
+      ],
+      "runs": [
+        "9f0e1d1b56234b07aa66ef2b065353ab",
+        "88344632364047ff883e263493cbd764",
+        "e8f240a335224229a26e23bcddb76d56"
+      ],
+      "sha256": {
+        "action-plan.md": "bfba49f49ca3c1ecabd78cef4048e9a51d59addd9b686af3a67318927bfddfb0",
+        "analysis.py": "63e7ae111375981dcca3398c40ef41ad130987fc4dde73716b856c1a46f7531c",
+        "report.md": "045113fb5ae00d838f797183358f8ae20e22d18a7748ab59d26c3f8f8146afbc",
+        "summary.csv": "558ddf7c8b8bd917dd6a9bfaacbd26b7bc999d086cdf6884caaf10cead967f5c",
+        "uploads/brief.md": "7deea7e311cc1cfd599268b3b1e1e3010f4b3855695795ec29cf8294036c67be",
+        "uploads/sales.csv": "d16e81d520d810ae57cc95052798588fdc0eb90b1a3772496ccfecf1829f2090"
+      }
+    }
+  },
+  "container": {
+    "image": "sha256:893e260bef3eb794161f6b321e7b7ad6923154c757ccac319c0b3c4f81d9ec41",
+    "user": "agent",
+    "memory": 2147483648,
+    "cpus": 2000000000,
+    "pids": 256,
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_opt": [
+      "no-new-privileges:true"
+    ]
+  },
+  "health": "healthy",
+  "cli_version": "1.2.27"
+}

@@ -2,3 +2,7 @@
 
 *.bat text eol=crlf
 *.cmd text eol=crlf
+
+# Preserve the exact bytes of real Agent outputs and browser downloads.
+docs/evidence/generated/** -text -eol whitespace=cr-at-eol
+docs/evidence/payroll-export.csv -text -eol whitespace=cr-at-eol
