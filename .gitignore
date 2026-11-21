@@ -1,0 +1,44 @@
+# Operating system and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.ipynb_checkpoints/
+
+# JavaScript dependencies and caches
+node_modules/
+.npm/
+.next/
+.nuxt/
+
+# Build outputs, test reports, logs and temporary files
+build/
+dist/
+coverage/
+.coverage
+htmlcov/
+*.log
+.cache/
+tmp/
+temp/
